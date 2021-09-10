@@ -2,7 +2,6 @@ package com.gloorystudio.newsdroid
 
 import android.os.Bundle
 import android.view.LayoutInflater
-import android.widget.ScrollView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.gloorystudio.newsdroid.databinding.ActivityMainBinding
@@ -48,7 +47,7 @@ class MainActivity : AppCompatActivity() {
         detailFragment = newInstance<DetailNewsFragment>(news)
         replaceFragment(detailFragment!!, binding.containerDetailNews.id)
         isDetailOpen = true
-        binding.svMain.smoothScrollTo(0,0)
+        binding.svMain.smoothScrollTo(0, 0)
     }
 
     private fun removeAllFragment() {
@@ -69,7 +68,7 @@ class MainActivity : AppCompatActivity() {
             }
             isDetailOpen = false
             prepareView()
-            binding.svMain.smoothScrollTo(0,0)
+            binding.svMain.smoothScrollTo(0, 0)
         } else super.onBackPressed()
     }
 
