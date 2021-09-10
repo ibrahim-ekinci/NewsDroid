@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".news.BigNewFragment">
+
+    <data>
+
+        <variable
+            name="mainActivity"
+            type="com.gloorystudio.newsdroid.MainActivity" />
+
+        <variable
+            name="news"
+            type="com.gloorystudio.newsdroid.model.News" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/mcvContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="5dp">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:onClick="@{() -> mainActivity.instance.onFragmentOnClick(news)}">
+
+            <ImageView
+                android:id="@+id/ivBackground"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/news_background"
+                android:scaleType="centerCrop"
+                app:imageResource="@{news.img}"
+                tools:src="@drawable/news_two" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cvDataContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_margin="15dp"
+                android:alpha="0.9"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="5dp"
+                app:strokeWidth="3dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tvNewTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:fontFamily="@font/proxi"
+                        android:maxLines="2"
+                        android:text="@{news.title}"
+                        android:textColor="@color/black"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        tools:text="@string/new_title" />
+
+                    <TextView
+                        android:id="@+id/tvNewDesc"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:ellipsize="end"
+                        android:fontFamily="@font/proxi"
+                        android:maxLines="3"
+                        android:text="@{news.detail}"
+                        android:textColor="@color/gray"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        tools:text="@string/new_detail" />
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/tvNewTopic"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="start|bottom"
+                            android:layout_marginStart="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:ellipsize="end"
+                            android:fontFamily="@font/proxi"
+                            android:maxLines="1"
+                            android:text="@{news.topic}"
+                            android:textColor="@color/gray"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            tools:text="@string/new_topic" />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/materialButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="50dp"
+                            android:layout_gravity="end"
+                            android:layout_marginHorizontal="10dp"
+                            android:text="@string/btn_detail_text"
+                            android:textColor="#45BFE4"
+                            app:backgroundTint="@color/white"
+                            android:onClick="@{() -> mainActivity.instance.onFragmentOnClick(news)}"/>
+                    </FrameLayout>
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+        </FrameLayout>
+    </com.google.android.material.card.MaterialCardView>
+</layout>
